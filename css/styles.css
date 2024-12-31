@@ -16,8 +16,9 @@ header {
 nav {
     background-color: #005bb5;
     color: white;
-    display: flex;
-    justify-content: space-around;
+    display: flex; /* 플렉스박스 적용 */
+    justify-content: center; /* 수평 중앙 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
     padding: 10px 0;
 }
 
@@ -25,11 +26,14 @@ nav a {
     color: white;
     text-decoration: none;
     padding: 8px 15px;
+    margin: 0 10px; /* 메뉴 간 간격 */
+    transition: background-color 0.3s ease; /* 배경색 변경 애니메이션 */
 }
 
 nav a:hover {
     background-color: #004b9b;
     border-radius: 5px;
+    color: white !important; /* 글씨 색상 유지 */
 }
 
 .container {
@@ -85,4 +89,24 @@ footer {
     text-align: center;
     padding: 10px 0;
     margin-top: 20px;
+}
+
+/* 배너 스타일 */
+.banner-container {
+    width: 100%;
+    height: 100vh; 
+    position: relative;
+    overflow: hidden; /* 이미지가 잘리지 않도록 설정 */
+    display: flex; /* 이미지를 가운데 정렬 */
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* 이미지 비율 유지하며 잘라내기 */
+    position: absolute; /* 부모 컨테이너 안에서만 적용 */
+    top: 0;
+    left: 0;
 }
