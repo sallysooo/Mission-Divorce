@@ -8,3 +8,8 @@ services:
     volumes:
       - "./src:/var/www/html"
     restart: always 
+    command: >
+      bash -c "
+      chmod -R 777 /var/www/html/uploads &&
+      chown -R www-data:www-data /var/www/html/uploads &&
+      apache2-foreground"

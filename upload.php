@@ -5,7 +5,7 @@
     // 참가자별 고유 업로드 디렉토리
     $participantDir = __DIR__ . '/uploads/' . session_id();
     if(!is_dir($participantDir)){
-        mkdir($participantDir, 0777, true);
+        mkdir($participantDir, 0755, true);
     }
 
 
