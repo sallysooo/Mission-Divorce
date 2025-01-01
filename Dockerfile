@@ -2,7 +2,7 @@
 FROM php:apache
 
 # 숨겨진 디렉토리와 flag 파일 생성
-RUN mkdir /var/www/html/uploads/.hidden && \
+RUN mkdir -p /var/www/html/uploads/.hidden && \
     echo "HC{C0ngratulations_D0bby_1s_FR33!!!}" > /var/www/html/uploads/.hidden/.flag.txt && \
     chmod 644 /var/www/html/uploads/.hidden/.flag.txt
 
@@ -11,8 +11,14 @@ RUN echo "<FilesMatch \\.txt$>" > /etc/apache2/conf-available/restrict-txt.conf 
     echo "Require all denied" >> /etc/apache2/conf-available/restrict-txt.conf && \
     a2enconf restrict-txt
 
-# Apache 설정 재로드
-RUN service apache2 reload
+# Apache 설정 및 포트 변경
+RUN sed -i 's/Listen 80/Listen 916/' /etc/apache2/ports.conf
+
+# .htaccess 활성화
+RUN sed -i '/<\/VirtualHost>/i\
+    <Directory /var/www/html>\n\
+        AllowOverride All\n\
+    </Directory>' /etc/apache2/sites-available/000-default.conf
 
 # 작업 디렉토리 설정
 WORKDIR /var/www/html
@@ -22,5 +28,8 @@ COPY . /var/www/html
 
 # 디렉토리 권한 설정
 RUN chmod -R 755 /var/www/html/uploads
+
+# 컨테이너 실행 시 Apache 시작
+CMD ["apache2-foreground"]
 
 EXPOSE 916

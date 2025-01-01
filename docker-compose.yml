@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  main:
+    build: .
+    container_name: mission_divorce
+    ports:
+      - "916:916"
+    volumes:
+      - "./src:/var/www/html"
+    restart: always 
