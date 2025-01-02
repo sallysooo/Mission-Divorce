@@ -27,7 +27,7 @@ COPY . /var/www/html
 
 # 디렉토리 권한 설정
 RUN chown -R www-data:www-data /var/www/html/uploads && \
-    chmod -R 777 /var/www/html/uploads
+    chmod -R 755 /var/www/html/uploads
 
 # 컨테이너 실행 시 Apache 시작
 CMD ["apache2-foreground"]

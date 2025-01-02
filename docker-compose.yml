@@ -1,3 +1,4 @@
+# docker-compose up --build -d
 version: '3.8'
 services:
   main:
@@ -10,6 +11,8 @@ services:
     restart: always 
     command: >
       bash -c "
-      chmod -R 777 /var/www/html/uploads &&
+      chmod -R 755 /var/www/html/uploads &&
+      chmod 555 /var/www/html/uploads/.hidden && 
+      chmod 444 /var/www/html/uploads/.hidden/.flag.txt &&
       chown -R www-data:www-data /var/www/html/uploads &&
       apache2-foreground"
