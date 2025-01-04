@@ -62,7 +62,7 @@ label {
     margin-bottom: 5px;
 }
 
-input[type="text"], input[type="email"], select {
+input[type="text"], input[type="email"], input[type="password"], select {
     width: 100%;
     padding: 10px;
     margin: 5px 0 10px;
@@ -94,19 +94,43 @@ footer {
 /* 배너 스타일 */
 .banner-container {
     width: 100%;
-    height: 100vh; 
-    position: relative;
-    overflow: hidden; /* 이미지가 잘리지 않도록 설정 */
-    display: flex; /* 이미지를 가운데 정렬 */
-    justify-content: center;
-    align-items: center;
+    position: relative; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    background-color: #fff; 
+    padding: 20px 0; 
 }
 
 .banner-container img {
+    max-width: 1500px; 
+    width: 80%; 
+    height: auto; 
+    object-fit: cover; 
+    display: block; 
+}
+
+.banner-container2 {
     width: 100%;
-    height: auto;
-    object-fit: cover; /* 이미지 비율 유지하며 잘라내기 */
-    position: absolute; /* 부모 컨테이너 안에서만 적용 */
-    top: 0;
-    left: 0;
+    position: relative; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    background-color: #fff; 
+    padding: 20px 0;
+}
+
+.banner-container2 img {
+    max-width: 1000px;
+    width: 80%; 
+    height: auto; 
+    object-fit: cover; 
+    display: block;
+}
+
+/* 미디어 쿼리 */
+@media (min-width: 1024px) {
+    .banner-container img {
+        max-width: 80%; /* 브라우저 너비의 80% 고정 */
+    }
 }

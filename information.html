@@ -6,6 +6,7 @@
     <title>정부24 이혼 서비스</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link type="image/png" sizes="16x16" rel="icon" href="sources/icons8-for-you-16.png">
 </head>
 <body>
     <header>
@@ -19,8 +20,20 @@
         <a href="#">문의</a>
     </nav>
 
-    <div class="banner-container">
-        <img src="" alt="이미지">
+    <div class="banner-container2">
+        <img src="sources/banner3.png" alt="배너 이미지">
+    </div>
+
+    <div class="container">
+        <div class="title">정보게시판</div>
+        <form action="query.php" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name">비밀번호</label>
+                <input type="text" id="password" name="password" placeholder="비밀번호를 입력하세요">
+            </div>
+
+            <button type="submit">QUERY</button>
+        </form>
     </div>
 
     <footer>

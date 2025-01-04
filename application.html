@@ -6,6 +6,7 @@
     <title>정부24 이혼 서비스</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link type="image/png" sizes="16x16" rel="icon" href="sources/icons8-for-you-16.png">
 </head>
 <body>
     <header>
@@ -18,6 +19,10 @@
         <a href="information.html">정보</a>
         <a href="#">문의</a>
     </nav>
+
+    <div class="banner-container2">
+        <img src="sources/banner2.png" alt="배너 이미지">
+    </div>
 
     <div class="container">
         <div class="title">서비스 신청</div>
@@ -38,7 +43,8 @@
                     <option value="">서비스를 선택하세요</option>
                     <option value="1">협의이혼</option>
                     <option value="2">재판이혼</option>
-                    <option value="3">친권자지정신고</option>
+                    <option value="3">이혼(친권자지정)신고</option>
+                    <option value="4">이혼가족 통합복지서비스(Helpline)</option>
                 </select>
             </div>
 
@@ -52,6 +58,11 @@
                         <button class="browse btn btn-primary input-lg" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>
                     </span>
                 </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">비밀번호</label>
+                <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요">
             </div>
 
             <button type="submit">제출</button>
