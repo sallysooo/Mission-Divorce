@@ -16,7 +16,7 @@
     <nav>
         <a href="index.html">홈</a>
         <a href="application.html">서비스 신청</a>
-        <a href="information.html">정보</a>
+        <a href="information.php">정보</a>
         <a href="#">문의</a>
     </nav>
 
@@ -34,6 +34,21 @@
 
             <button type="submit">QUERY</button>
         </form>
+
+        <div class="output">
+            <?php
+                if(isset($_GET['success'])){
+                    echo "<p>Real password: R3A1_paxxw0rD </p>";
+                }
+                elseif(isset($_GET['error'])){
+                    if($_GET['error'] == 'length'){
+                        echo "<p>Error: Password is too long..:(</p>";
+                    } elseif($_GET['error'] == "invalid"){
+                        echo "<p>Error: Wrong Password!!</p>";
+                    }
+                }
+            ?>
+        </div>
     </div>
 
     <footer>
