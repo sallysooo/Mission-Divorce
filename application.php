@@ -15,7 +15,7 @@
 
     <nav>
         <a href="index.html">홈</a>
-        <a href="application.html">서비스 신청</a>
+        <a href="application.php">서비스 신청</a>
         <a href="information.php">정보</a>
         <a href="#">문의</a>
     </nav>
@@ -67,6 +67,23 @@
 
             <button type="submit">제출</button>
         </form>
+        <div class="output">
+            <?php
+                if(isset($_GET['success'])){
+                    $uploadedFilePath = $_GET['success'];
+                    echo "<br><p>파일이 업로드되었습니다: <a href='$uploadedFilePath'>$uploadedFilePath</a></p>";
+                }
+                elseif(isset($_GET['error'])){
+                    if($_GET['error'] == 'invalidPaxx'){
+                        echo "<br><p>Error: Password is not correct..:(</p>";
+                    } elseif($_GET['error'] == "invalidFileFormat"){
+                        echo "<br><p>Invalid file format! Only images are allowed.</p>";
+                    } elseif ($_GET['error'] == 'uploadFailed') {
+                        echo "<br><p>파일 업로드에 실패했습니다.</p>";
+                    }
+                }
+            ?>
+        </div>
     </div>
 
     <footer>

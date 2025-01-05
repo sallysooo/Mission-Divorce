@@ -1,13 +1,26 @@
 # Mission-Divorce
 
 ## Initial Draft (토대 및 시나리오 구현)
-![image](https://github.com/user-attachments/assets/787d7288-e6ee-4639-b169-3e8e5a3a644f)
+![image](https://github.com/user-attachments/assets/b9099948-b7f7-45a7-ab5d-7ee949116527)
 <br>
-- scenario : 이혼 서류 제출란을 통해 file vulnerability 및 command injection을 활용하여 flag 획득하기
-- 여기에 난이도 추가용으로 step0을 추가하여 flag를 찾기 위해 필요한 단서를 찾는 misc 요소들 추후 추가할 예정 (다른 메뉴 페이지로)
+- scenario1 : 정보게시판에서 비밀번호 찾기 (misc)
+- 참가자들은 chall 파일로 해당 페이지의 중요 단서인 query.php 코드를 제공받아 비밀번호 입력란에 넣을 올바른 문자열을 기입해야함
+- query.php에는 base64 디코딩과 regex가 적용되어 있어 비밀번호를 알아내기 위해서는 역공학으로 추론해나가야 알 수 있다.
+- 문자열이 올바르면 위와 같이 real password가 출력되며, 이를 갖고 서비스 신청 페이지에서 활용 가능 <br>
+
+![image](https://github.com/user-attachments/assets/787d7288-e6ee-4639-b169-3e8e5a3a644f)
+![image](https://github.com/user-attachments/assets/7e9cd611-6ab1-46f5-a059-d777994d5822)
+<br>
+- scenario2 : 이혼 서류 제출란을 통해 file vulnerability 및 command injection을 활용하여 flag 획득하기
 - 각 페이지마다 배너 이미지 생성하여 상단에 추가해놓았음
-- 이름, 이메일, 서비스 선택(추후 구체화), 서류 첨부 4가지 메뉴를 받아 제출 시 첨부 파일 확장자를 기준으로 업로드/통제 여부 판단 (여기에 취약점 inject) <br>
-  
+- 이름, 이메일, 서비스 선택, 서류 첨부, 비밀번호 5가지 메뉴를 입력받는다.
+- 1st : 비밀번호가 올바른지 판단 -> 정보게시판에서 먼저 비번을 획득해놔야함 
+- 2nd : 제출 시 첨부 파일 확장자를 기준으로 업로드/통제 여부 판단 (여기에 취약점 inject) <br>
+
+![image](https://github.com/user-attachments/assets/6f89152b-371f-4465-b9e6-b42f15172d57)
+<br>
+- URL 조작으로 다른 페이지나 디렉토리로 이동할 수 없도록 BLOCK 처리 완료<br>
+
 ![image](https://github.com/user-attachments/assets/2879fd83-d8bd-47a4-b569-9d4e9c7b56f0)
 <br>
 - 윈도우에선 보안 상의 이유로 불가하므로 일단 리눅스 환경에서 웹쉘 업로드 가능 여부 테스트 완료

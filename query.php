@@ -6,7 +6,7 @@
             $input_pw = $_POST["password"] ? $_POST["password"] : "";
 
             if (strlen($input_pw) >= 30) {
-              header("Location: information.html?error=length");
+              header("Location: information.php?error=length");
               exit();
             }
             else{
@@ -15,10 +15,10 @@
               $pw = preg_replace($regex,"n3wPa55W0rd", $input_pw);
 
               if ($pw == "n3wPa55W0rd") {
-                header("Location: information.html?success=777");
+                header("Location: information.php?success=777");
               }
               else{
-                header("Location: information.html?error=invalid");
+                header("Location: information.php?error=invalid");
               }
               exit();
             }
