@@ -17,7 +17,7 @@
         <a href="index.html">홈</a>
         <a href="application.php">서비스 신청</a>
         <a href="information.php">정보</a>
-        <a href="#">문의</a>
+        <a href="qna.html">문의</a>
     </nav>
 
     <div class="banner-container2">
