@@ -3,7 +3,7 @@ FROM php:apache
 
 # 숨겨진 디렉토리와 flag 파일 생성
 RUN mkdir -p /var/www/html/uploads/.hidden && \
-    echo "HC{C0ngratulations_D0bby_1s_FR33!!!}" > /var/www/html/uploads/.hidden/.flag.txt && \
+    echo "HCAMP{C0ngratulations_D0bby_1s_FR33!!!}" > /var/www/html/uploads/.hidden/.flag.txt && \
     chmod 555 /var/www/html/uploads/.hidden && \
     chmod 444 /var/www/html/uploads/.hidden/.flag.txt
 
